@@ -5,6 +5,7 @@ import com.challenge.prices.application.domain.repositories.PriceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -15,5 +16,10 @@ public class PriceServiceImpl implements PriceService {
     @Override
     public List<Price> findAll() {
         return priceRepository.findAll();
+    }
+
+    @Override
+    public List<Price> findPrices(int brandId, long productId, Date date) {
+        return priceRepository.findPrices(brandId, productId, date);
     }
 }
