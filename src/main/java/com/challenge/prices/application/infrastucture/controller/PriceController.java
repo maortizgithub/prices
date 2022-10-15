@@ -49,11 +49,7 @@ public class PriceController {
         try {
             List<Price> list = priceService.findPrices(priceSearchDTO.getBrandId(), priceSearchDTO.getProductId(), priceSearchDTO.getDate());
             Optional<Price> priorityPrice = list.stream().max(Comparator.comparing(Price::getPriority));
-
-            if (!priorityPrice.isPresent()) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok().body(priceMapper.toDto(priorityPrice.get()));
+            return (!priorityPrice.isPresent())? ResponseEntity.notFound().build() : ResponseEntity.ok().body(priceMapper.toDto(priorityPrice.get()));
         } catch (Exception e) {
             throw new ApplicationException(new ErrorDTO("0001", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
