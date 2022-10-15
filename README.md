@@ -7,7 +7,12 @@ This basic Prices API was developed as a technical test.
 The App is developed by using the Spring Framework base dependencies to manage code.
 Libraries included:
 - **Spring Boot Starter Web**: for providing basic application layout.
-- **Apache commons**: for providing basic utilities managing.
+- **Spring Boot JPA**: for providing basic application layout.
+- **mapstruct**: Java utilities for mapping objects.
+- **Lombok**: Java utilities for speeding up development and enforce clean code.
+- **H2 DB**: A local database.
+- **Cucumber**: for ATDD test with Gherkin language.
+- **Rest assured**: Calling API in easy way.
 - **JUnit**: used for running Application Unit Tests
 
 In order to build this app to be run in a production environment, first compile it:
